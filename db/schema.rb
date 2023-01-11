@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_08_124844) do
+ActiveRecord::Schema.define(version: 2023_01_11_135819) do
 
   create_table "users", charset: "utf8", force: :cascade do |t|
     t.string "nickname", default: "", null: false
