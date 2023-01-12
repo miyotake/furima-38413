@@ -35,7 +35,7 @@ Association
 Association
 ·belongs_to :user
 ·has_one :order
-·has_many :comment
+
 
 ## orders テーブル
 
@@ -65,13 +65,4 @@ Association
 Association
 ·belongs_to :order
  
-## comments テーブル
-| Column             | Type   | Option                                 |
-| -----------------  |-------     -|-----------------------------------|
-| user               | references  | null: false, foreign_key: true    |
-| item               | references  | null: false, foreign_key: true    |
-| comment            | text        | null: false                       |
 
-Association
-·belongs_to :user
-·belongs_to :item
