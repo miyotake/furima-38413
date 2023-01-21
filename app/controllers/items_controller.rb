@@ -20,8 +20,23 @@ class ItemsController < ApplicationController
 
   def show
     
-    
   end
+
+  def edit
+    if current_user.id != @item.user_id
+      redirect_to root_path
+      end
+    end
+
+  def update
+    if @item.update(item_params)
+      redirect_to item_path
+    else
+      render :edit
+    end
+  end
+
+
 
     private
     def item_params
@@ -29,16 +44,8 @@ class ItemsController < ApplicationController
                                    :category_id, :image).merge(user_id: current_user.id)
     end
 
-    def move_to_index
-      if current_user.id != @item.user_id
-        redirect_to root_path
-      elsif !@item.order.nil?
-        redirect_to root_path
-      end
-end
-def set_item
-  @item = Item.find(params[:id])
-end
-
+    def set_item
+    @item = Item.find(params[:id])
+   end
 end
 
