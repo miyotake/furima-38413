@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_01_30_000617) do
+ActiveRecord::Schema.define(version: 2023_02_01_044330) do
 
   create_table "active_storage_attachments", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
@@ -40,6 +40,11 @@ ActiveRecord::Schema.define(version: 2023_01_30_000617) do
     t.index ["blob_id", "variation_digest"], name: "index_active_storage_variant_records_uniqueness", unique: true
   end
 
+  create_table "errors", charset: "utf8", force: :cascade do |t|
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
   create_table "items", charset: "utf8", force: :cascade do |t|
     t.string "name", null: false
     t.integer "price", null: false
@@ -60,11 +65,6 @@ ActiveRecord::Schema.define(version: 2023_01_30_000617) do
     t.datetime "updated_at", precision: 6, null: false
   end
 
-  create_table "orderpayments", charset: "utf8", force: :cascade do |t|
-    t.datetime "created_at", precision: 6, null: false
-    t.datetime "updated_at", precision: 6, null: false
-  end
-
   create_table "orders", charset: "utf8", force: :cascade do |t|
     t.bigint "user_id", null: false
     t.bigint "item_id", null: false
@@ -81,7 +81,7 @@ ActiveRecord::Schema.define(version: 2023_01_30_000617) do
     t.string "block", null: false
     t.string "building"
     t.string "phone_number", null: false
-    t.bigint "order_id", null: false
+    t.bigint "order_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_payments_on_order_id"

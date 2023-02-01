@@ -31,7 +31,8 @@
     </div>
     <%# /支払額の表示 %>
 
-    <%= form_with model: @order_payment, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= form_with model: @order, url: item_orders_path, id: 'charge-form', class: 'transaction-form-wrap',local: true do |f| %>
+    <%= render 'shared/error_messages', model: f.object %>
     <%# カード情報の入力 %>
     <div class='credit-card-form'>
       <h1 class='info-input-haedline'>
@@ -44,7 +45,7 @@
         </div>
         <div id="number-form" class="input-default"></div>
          <%# ここにフォームが生成されます %>
-         
+
         <div class='available-card'>
           <%= image_tag 'card-visa.gif', class: 'card-logo'%>
           <%= image_tag 'card-mastercard.gif', class: 'card-logo'%>
