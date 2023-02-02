@@ -8,7 +8,6 @@ class OrdersController < ApplicationController
   end
 
   def create
-    item_id = params[:item_id]
     @order = OrderPayment.new(order_params)
     if @order.valid?
       pay_item
